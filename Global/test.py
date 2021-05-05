@@ -124,6 +124,9 @@ if __name__ == "__main__":
     for i in range(dataset_size):
 
         input_name = input_loader[i]
+        chenk_name = os.path.split(input_name)[-1].split(".")[0]
+        if(os.path.exists(opt.outputs_dir + "/origin/" + chenk_name + ".png")):
+            continue
         input_file = os.path.join(opt.test_input, input_name)
         if not os.path.isfile(input_file):
             print("Skipping non-file %s" % input_name)
